@@ -4,11 +4,11 @@ namespace _3_Semester_HV_prosjekt.DataAccess
 {
     public class ResourceDbSeeder
     {
-        public static void Seed(_3_Semester_HV_prosjekt)
+        public static void Seed(_3_Semester_HV_prosjektDbContext dbContext)
         {
             ArgumentNullException.ThrowIfNull(dbContext);
 
-            var seededResources = new List<Resource>
+            var seedResources = new[]
             {
                 new Resource { Name = "Resource 1", Description = "Description 1", Type = "Type A" },
                 new Resource { Name = "Resource 2", Description = "Description 2", Type = "Type B" },
