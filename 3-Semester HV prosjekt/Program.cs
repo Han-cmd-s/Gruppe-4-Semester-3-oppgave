@@ -1,3 +1,6 @@
+using _3_Semester_HV_prosjekt.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
