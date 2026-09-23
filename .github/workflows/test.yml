@@ -1,0 +1,36 @@
+name: Test build
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Dotnet setup
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore HV_prosjekt.slnx
+
+      - name: Run
+        run: dotnet run --project HV_prosjekt.slnx
+
+      - name: Test
+        run: dotnet test --project HV_prosjekt.slnx --configuration Release --no-build --no-restore --verbosity normal
