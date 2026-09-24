@@ -1,3 +1,5 @@
 <Solution>
   <Project Path="HV_prosjekt/HV_prosjekt.csproj" />
+  <Project Path="HV_prosjekt.Aspire/HV_prosjekt.Aspire.AppHost/HV_prosjekt.Aspire.AppHost.csproj" />
+  <Project Path="HV_prosjekt.Aspire/HV_prosjekt.Aspire.ServiceDefaults/HV_prosjekt.Aspire.ServiceDefaults.csproj" />
 </Solution>
