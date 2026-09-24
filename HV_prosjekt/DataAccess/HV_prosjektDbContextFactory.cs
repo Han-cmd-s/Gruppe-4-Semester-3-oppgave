@@ -7,7 +7,7 @@ namespace HV_prosjekt.DataAccess
     {
         public HV_prosjektDbContext CreateDbContext(string[] args)
         {
-            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings_HV_prosjektdb")
+            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__HVprosjektdb")
                     ?? "server=localhost;Database=HV_prosjekt;user=root;password=;";
 
             var options = new DbContextOptionsBuilder<HV_prosjektDbContext>()
