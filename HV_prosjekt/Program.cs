@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-var connectionString = builder.Configuration.GetConnectionString("HVprosjektdb")
+var connectionString = builder.Configuration.GetConnectionString("hvprosjektdb")
     ?? throw new InvalidOperationException(
         "the connection to 'HVprosjektdb' was not configured. Run web app through Aspire.");
 

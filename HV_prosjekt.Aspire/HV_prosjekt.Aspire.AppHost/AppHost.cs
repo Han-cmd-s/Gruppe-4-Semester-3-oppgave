@@ -6,7 +6,7 @@ var mariaDbServer = builder.AddMariaDb("mariadb")
                    .WithDataBindMount(source: @"../../../MariaDb/Data")
                    .WithLifetime(ContainerLifetime.Persistent);
 
-var mariaDb = mariaDbServer.AddDatabase("HVprosjektdb");
+var mariaDb = mariaDbServer.AddDatabase("hvprosjektdb");
 
 //Bruk enten dockerfile varianten eller native, ikke begge (eksempel fra Espen)
 
@@ -20,7 +20,7 @@ var mariaDb = mariaDbServer.AddDatabase("HVprosjektdb");
 //Det tar en time å gå ned til ørsta rådhus!
 
 //Variant native 
-builder.AddProject<Projects.HV_prosjekt>("HV-prosjekt")
+builder.AddProject<Projects.HV_prosjekt>("hvprosjekt")
                        .WithReference(mariaDb)
                        .WaitFor(mariaDb);
 builder.Build().Run();
