@@ -29,8 +29,8 @@ jobs:
       - name: Restore
         run: dotnet restore HV_prosjekt.slnx
 
-      - name: Run
-        run: dotnet run --project HV_prosjekt.slnx
+      - name: Build
+        run: dotnet build HV_prosjekt.slnx
 
       - name: Test
-        run: dotnet test --project HV_prosjekt.slnx --configuration Release --no-build --no-restore --verbosity normal
+        run: dotnet test HV_prosjekt.slnx --configuration Release --no-build --no-restore --verbosity normal
