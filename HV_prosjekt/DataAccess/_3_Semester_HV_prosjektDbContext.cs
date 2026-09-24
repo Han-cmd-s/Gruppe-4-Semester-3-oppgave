@@ -1,9 +1,9 @@
-﻿using _3_Semester_HV_prosjekt.Models.Entities;
+﻿using HV_prosjekt.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace _3_Semester_HV_prosjekt.DataAccess
+namespace HV_prosjekt.DataAccess
 {
-    public class _3_Semester_HV_prosjektDbContext(DbContextOptions<_3_Semester_HV_prosjektDbContext> options) : DbContext(options)
+    public class HV_prosjektDbContext(DbContextOptions<HV_prosjektDbContext> options) : DbContext(options)
     {
         public DbSet<Resource> Resources => Set<Resource>();
 

@@ -1,7 +1,7 @@
-﻿using _3_Semester_HV_prosjekt.Models.Entities;
-using _3_Semester_HV_prosjekt.Models.ViewModels.Resource;
+﻿using HV_prosjekt.Models.Entities;
+using HV_prosjekt.Models.ViewModels.Resource;
 
-namespace _3_Semester_HV_prosjekt.DataAccess
+namespace HV_prosjekt.DataAccess
 {
     public class ResourceRepository : IResourceRepository
     {

@@ -1,6 +1,6 @@
-using _3_Semester_HV_prosjekt.Models.Entities;
+using HV_prosjekt.Models.Entities;
 
-namespace _3_Semester_HV_prosjekt.DataAccess
+namespace HV_prosjekt.DataAccess
 {
     public interface IResourceRepository
     {

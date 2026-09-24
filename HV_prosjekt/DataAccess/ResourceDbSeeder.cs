@@ -1,10 +1,10 @@
-﻿using _3_Semester_HV_prosjekt.Models.Entities;
+﻿using HV_prosjekt.Models.Entities;
 
-namespace _3_Semester_HV_prosjekt.DataAccess
+namespace HV_prosjekt.DataAccess
 {
     public class ResourceDbSeeder
     {
-        public static void Seed(_3_Semester_HV_prosjektDbContext dbContext)
+        public static void Seed(HV_prosjektDbContext dbContext)
         {
             ArgumentNullException.ThrowIfNull(dbContext);
 

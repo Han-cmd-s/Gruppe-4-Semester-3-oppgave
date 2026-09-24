@@ -1,4 +1,4 @@
-namespace _3_Semester_HV_prosjekt.Models
+namespace HV_prosjekt.Models
 {
     public class ErrorViewModel
     {

@@ -1,8 +1,8 @@
-﻿using _3_Semester_HV_prosjekt.DataAccess;
-using _3_Semester_HV_prosjekt.Models.ViewModels.Resource;
+﻿using HV_prosjekt.DataAccess;
+using HV_prosjekt.Models.ViewModels.Resource;
 using Microsoft.AspNetCore.Mvc;
 
-namespace _3_Semester_HV_prosjekt.Web.Controllers
+namespace HV_prosjekt.Web.Controllers
 {
     public class ResourceController : Controller
     {

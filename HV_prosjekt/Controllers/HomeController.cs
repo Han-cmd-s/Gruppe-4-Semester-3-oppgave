@@ -1,8 +1,8 @@
-using _3_Semester_HV_prosjekt.Models;
+using HV_prosjekt.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace _3_Semester_HV_prosjekt.Controllers
+namespace HV_prosjekt.Controllers
 {
     public class HomeController : Controller
     {

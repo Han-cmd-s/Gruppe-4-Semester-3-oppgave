@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace _3_Semester_HV_prosjekt.Models.ViewModels.Resource
+namespace HV_prosjekt.Models.ViewModels.Resource
 {
     public class ResourceViewModel
     {

@@ -1,4 +1,4 @@
-﻿namespace _3_Semester_HV_prosjekt.Models.Entities;
+﻿namespace HV_prosjekt.Models.Entities;
 
 public class Resource
 {
