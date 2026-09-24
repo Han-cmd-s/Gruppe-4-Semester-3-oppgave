@@ -7,7 +7,7 @@ builder.Services.AddControllersWithViews();
 
 var connectionString = builder.Configuration.GetConnectionString("HVprosjektdb")
     ?? throw new InvalidOperationException(
-        "the connection to 'HV_prosjektdb' was not configured. Run web app through Aspire.");
+        "the connection to 'HVprosjektdb' was not configured. Run web app through Aspire.");
 
 builder.Services.AddDbContext<HV_prosjektDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
