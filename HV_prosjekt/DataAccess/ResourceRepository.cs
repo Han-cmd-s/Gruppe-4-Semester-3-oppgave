@@ -10,7 +10,6 @@ namespace HV_prosjekt.DataAccess
 
         public ResourceRepository()
         {
-            // Initialize with some sample data
             Create(new ResourceViewModel { Name = "Resource 1", Description = "Description 1", Type = "Type A" });
             Create(new ResourceViewModel { Name = "Resource 2", Description = "Description 2", Type = "Type B" });
         }
