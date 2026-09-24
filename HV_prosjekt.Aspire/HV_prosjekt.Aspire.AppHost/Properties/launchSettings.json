@@ -14,7 +14,7 @@
       }
     },
     "http": {
-      "commandName": "Project",
+      "commandName": "HV_Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "applicationUrl": "http://localhost:15226",
