@@ -1,0 +1,24 @@
+﻿@model HV_prosjekt.Models.ViewModels.Resource.ResourceViewModel
+
+@{
+    ViewData["Title"] = "Resource";
+}
+
+<h1>Resource</h1>
+
+@* If the box is empty, there is nothing to show *@
+@if (string.IsNullOrEmpty(Model.Name))
+{
+    <p>No resource found.</p>
+}
+else
+{
+    @* If the box has a resource, show its information *@
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">@Model.Name</h2>
+            <p><strong>Type:</strong> @Model.Type</p>
+            <p><strong>Description:</strong> @Model.Description</p>
+        </div>
+    </div>
+}
