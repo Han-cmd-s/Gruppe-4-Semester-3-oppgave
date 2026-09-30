@@ -36,9 +36,7 @@ public class PositionsController : ControllerBase
         return Ok(new { p.Id, p.Latitude, p.Longitude, p.CreatedAt });
     }
 
-    // Allow JSON POST from JS; skip antiforgery for this API endpoint
     [HttpPost]
-   
     public async Task<IActionResult> Create([FromBody] PositionDto range)
     {
         if (range is null) return BadRequest();
