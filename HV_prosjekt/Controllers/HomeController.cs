@@ -11,6 +11,13 @@ namespace HV_prosjekt.Controllers
             return View();
         }
 
+        // GET: /Home/Map
+        [HttpGet]
+        public IActionResult Map()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

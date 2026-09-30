@@ -1,0 +1,26 @@
+﻿
+
+<!-- Set the size of the map container -->
+<div id="map" style="width: 100%; height: 400px;"></div> <!-- Possibly remove 'width: 100%;' if it's too big if the form is to be on the same page.-->
+
+@section Scripts {
+	<script>
+		// Initialize the map and set its view to a specific location and zoom level
+		var map = L.map('map').setView([58.14671, 7.9956], 13); // Coordinates for Kristiansand. 13 stands for zoom level.
+
+		// Add a tile layer to the map (OpenStreetMap tiles)
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		//Handle map click event
+		map.on('click', function (e) {
+			//Get clicked position
+			var lat = e.latlng.lat;
+			var lng = e.latlng.lng;
+
+		//Add marker to the map
+		L.marker([lat, lng]).addTo(map);
+		});
+	</script>
+}
