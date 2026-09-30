@@ -1,4 +1,9 @@
 ﻿
+@model HV_prosjekt.Models.PositionModel
+
+<!-- 
+	<h2>Legg til en heading her?</h2>
+-->
 
 <!-- Set the size of the map container -->
 <div id="map" style="width: 100%; height: 400px;"></div> <!-- Possibly remove 'width: 100%;' if it's too big if the form is to be on the same page.-->
@@ -13,14 +18,30 @@
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
-		//Handle map click event
-		map.on('click', function (e) {
-			//Get clicked position
-			var lat = e.latlng.lat;
-			var lng = e.latlng.lng;
 
-		//Add marker to the map
-		L.marker([lat, lng]).addTo(map);
+
+		map.on('click', function(e) {
+
+			var marker = L.marker(e.latlng, {
+				draggable: true
+			}).addTo(map);
+
+			marker.on('click', function() {
+				map.removeLayer(marker);
+			});
+
+			marker.on('dragend', function() {
+				var position = marker.getLatLng();
+
+				console.log(
+					"Marker moved to:",
+					position.lat,
+					position.lng
+				);
+			});
+
 		});
+		
+
 	</script>
 }
