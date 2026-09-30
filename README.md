@@ -5,8 +5,11 @@ Opprett endringer i egen branch først, så opprett en PR som vi kan gå gjennom
 
 GitHub Actions er satt opp for å automatisk teste om systemet bygges ved hver commit/PR.
 
-updated with Aspire
+Oppdatert med Aspire Main kjørte ikke har oppdatert så den kjørte for meg feilsøking med hjelp av Copilot.
+mange problemmer oppstått gjennom koding, manglende filer og gjenoppbygging. Copilot ble brukt en del, men for å hjelpe å finne løsninger på problemer som oppstod med koden etterhvert som den ble oppdatert og merget. 
 
+
+## Copilot oppsummering av hvordan å kjøre det uten aspire:
 ## Running the application locally
 
 The application targets .NET 10 and uses Entity Framework Core with MariaDB/MySQL. On startup it creates the development database schema and inserts the seed resources.
