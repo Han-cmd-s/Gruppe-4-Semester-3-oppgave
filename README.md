@@ -1,11 +1,37 @@
 # Gruppe-4-Kartverk-Heimevernet
-Gruppe 4 repo for 3. semester prosjektet. En webapplikasjon med kart som viser og hjelper til med å håndtere krisesituasjoner.
 
+Gruppe 4 repo for 3. semester prosjektet i IS-20x.
+En webapplikasjon med kart som skal hjelpe til med å håndtere krisesituasjoner gjennom å registrere tilgjengelige ressurser og deres posisjoner.
+
+### Info til gruppen
 Opprett endringer i egen branch først, så opprett en PR som vi kan gå gjennom.
+
+Oppdatert med Aspire Main kjørte ikke har oppdatert så den kjørte for meg feilsøking med hjelp av Copilot. 
+
+### Drift
+
+Applikasjonen er utviklet i ASP.NET Core MVC. 
+
+### System arkitektur
+
+Prosjektet følger MVC-arkitekturen (Model-View-Controller) med en webapplikasjon som frontend og en backend som håndterer datalagring. 
+- Model lagrer data om ressurser og posisjoner. 
+- View viser dataene og kartet.
+- Controller håndterer brukerinteraksjoner og oppdaterer modellen og visningen.
+- Leaflet brukes for å vise kartet og håndtere kartrelaterte funksjoner.
+
+Databasen bruker MariaDB/MySQL, og Entity Framework Core brukes for å samhandle med databasen.
+
+### Testing scenarioer og resultater
 
 GitHub Actions er satt opp for å automatisk teste om systemet bygges ved hver commit/PR.
 
-Oppdatert med Aspire Main kjørte ikke har oppdatert så den kjørte for meg feilsøking med hjelp av Copilot. mange problemmer oppstått gjennom koding, manglende filer og gjenoppbygging. Copilot ble brukt en del, men for å hjelpe å finne løsninger på problemer som oppstod med koden etterhvert som den ble oppdatert og merget.
+### Vår bruk av KI i prosjektet
+
+Gruppen har hatt mange problemmer gjennom kodingen,blant annet med manglende filer og gjenoppbygging. 
+Copilot har blitt brukt en del for å hjelpe å finne løsninger på problemer som har oppstått med koden etterhvert som den ble oppdatert og merget.
+
+
 
 
 ## Running the application locally
