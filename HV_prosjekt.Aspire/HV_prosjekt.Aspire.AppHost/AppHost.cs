@@ -8,19 +8,10 @@ var mariaDbServer = builder.AddMariaDb("mariadb")
 
 var mariaDb = mariaDbServer.AddDatabase("hvprosjektdb");
 
-//Bruk enten dockerfile varianten eller native, ikke begge (eksempel fra Espen)
-
-//Variant dockerfile
-//builder.AddDockerfile("heimevernet-web", "../../", "Heimevernet.Web/Dockerfile")
-//                       .WithExternalHttpEndpoints()
-//                       .WithReference(mariaDb)
-//                       .WaitFor(mariaDb)
-//                       .WithHttpEndpoint(port: 8080, targetPort: 8080, name: "heimevernet-web");
-
-//Det tar en time å gå ned til ørsta rådhus!
-
-//Variant native 
-builder.AddProject<Projects.HV_prosjekt>("hvprosjekt")
+builder.AddDockerfile("hvprosjekt", "../../", "HV_prosjekt/Dockerfile")
+                       .WithExternalHttpEndpoints()
                        .WithReference(mariaDb)
-                       .WaitFor(mariaDb);
+                       .WaitFor(mariaDb)
+                       .WithHttpEndpoint(port: 8080, targetPort: 8080, name: "hvprosjekt");
+
 builder.Build().Run();
