@@ -39,7 +39,7 @@ Test sceanarioer har så langt blitt gjennomført via at GitHub Actions er satt 
 
 ### Vår bruk av KI i prosjektet
 
-Gruppen har hatt mange problemmer gjennom kodingen,blant annet med manglende filer, gjenoppbygging, og kjøring av systemet lokalt.
+Gruppen har hatt mange problemmer gjennom kodingen, blant annet med manglende filer, gjenoppbygging, og kjøring av systemet lokalt.
 Copilot har blitt brukt en del for å hjelpe å finne løsninger på problemer som har oppstått med koden etterhvert som den ble oppdatert og merget.
 Prompts som har bltt brukt ha ofte vært 'Analyze the current exception' direkte i Visual Studio via GitHub Copilot Chat.
 
