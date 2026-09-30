@@ -3,40 +3,55 @@
 Gruppe 4 repo for 3. semester prosjektet i IS-20x.
 En webapplikasjon med kart som skal hjelpe til med å håndtere krisesituasjoner gjennom å registrere tilgjengelige ressurser og deres posisjoner.
 
+I vårt prosjekt har vi hentet inspirasjon fra forelesningene, Lab øvelser, og fra repoet https://github.com/espenlimi/UIA202_2026 
+I tillegg har vi brukt Copilot for å hjelpe med koding og feilsøking. 
+
+
+
 ### Info til gruppen
 Opprett endringer i egen branch først, så opprett en PR som vi kan gå gjennom.
 
 Oppdatert med Aspire Main kjørte ikke har oppdatert så den kjørte for meg feilsøking med hjelp av Copilot. 
 
+
 ### Drift
 
 Applikasjonen er utviklet i ASP.NET Core MVC. 
+Systemet kjørte tidligere i Docker Compose, men ble skiftet til Aspire grunnet usikkerthet i gruppen om hva som var riktig. 
+Så eksempelet fra Espen's repo ble brukt og vi landet på Aspire. 
+
 
 ### System arkitektur
 
 Prosjektet følger MVC-arkitekturen (Model-View-Controller) med en webapplikasjon som frontend og en backend som håndterer datalagring. 
-- Model lagrer data om ressurser og posisjoner. 
-- View viser dataene og kartet.
+- Model lagrer per nå data om ressurser og posisjoner. 
+- View viser dataene og karte via HTML.
 - Controller håndterer brukerinteraksjoner og oppdaterer modellen og visningen.
-- Leaflet brukes for å vise kartet og håndtere kartrelaterte funksjoner.
 
 Databasen bruker MariaDB/MySQL, og Entity Framework Core brukes for å samhandle med databasen.
+Leaflet brukes for å vise kartet og håndtere kartrelaterte funksjoner.
+
 
 ### Testing scenarioer og resultater
 
-GitHub Actions er satt opp for å automatisk teste om systemet bygges ved hver commit/PR.
+Test sceanarioer har så langt blitt gjennomført via at GitHub Actions er satt opp for å automatisk teste om systemet bygges ved hver commit/PR.
+
 
 ### Vår bruk av KI i prosjektet
 
-Gruppen har hatt mange problemmer gjennom kodingen,blant annet med manglende filer og gjenoppbygging. 
+Gruppen har hatt mange problemmer gjennom kodingen,blant annet med manglende filer, gjenoppbygging, og kjøring av systemet lokalt.
 Copilot har blitt brukt en del for å hjelpe å finne løsninger på problemer som har oppstått med koden etterhvert som den ble oppdatert og merget.
+Prompts som har bltt brukt ha ofte vært 'Analyze the current exception' direkte i Visual Studio via GitHub Copilot Chat.
 
+Andre prompts har vært noe som 'Forklar hva som skjer i denne koden' og 'Forklar hva som er feil i denne koden'.
 
+#
 
 
 ## Running the application locally
 
 The application targets .NET 10 and uses Entity Framework Core with MariaDB/MySQL. On startup it creates the development database schema and inserts the seed resources.
+
 
 ### Prerequisites
 
