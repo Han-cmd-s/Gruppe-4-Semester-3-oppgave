@@ -6,9 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-var connectionString = builder.Configuration.GetConnectionString("HV_prosjektdb")
+var connectionString = builder.Configuration.GetConnectionString("hvprosjektdb")
     ?? throw new InvalidOperationException(
-        "the connection to 'HV_prosjektdb' was not configured. Run web app through Aspire.");
+        "the connection to 'HVprosjektdb' was not configured. Run web app through Aspire.");
 
 builder.Services.AddDbContext<HV_prosjektDbContext>(options =>
     options.UseMySql(connectionString, new MariaDbServerVersion(new Version(10, 11, 0))));
