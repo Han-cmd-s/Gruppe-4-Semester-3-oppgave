@@ -14,7 +14,9 @@ namespace HV_prosjekt.DataAccess
             {
                 Name = model.Name,
                 Description = model.Description,
-                Type = model.Type
+                Type = model.Type,
+                Latitude = model.Latitude,
+                Longitude = model.Longitude
             };
 
             dbContext.Resources.Add(resource);
@@ -43,9 +45,23 @@ namespace HV_prosjekt.DataAccess
                 return false;
             }
 
-            resource.Name = model.Name;
-            resource.Description = model.Description;
-            resource.Type = model.Type;
+            // map allowed updatable fields
+            var updated = new Resource
+            {
+                Id = resource.Id,
+                Name = model.Name,
+                Description = model.Description,
+                Type = model.Type,
+                Address = resource.Address,
+                City = resource.City,
+                ZipCode = resource.ZipCode,
+                OwnerTelephoneNumber = resource.OwnerTelephoneNumber,
+                Latitude = model.Latitude,
+                Longitude = model.Longitude
+            };
+
+            // EF: update entity
+            dbContext.Entry(resource).CurrentValues.SetValues(updated);
             dbContext.SaveChanges();
             return true;
         }

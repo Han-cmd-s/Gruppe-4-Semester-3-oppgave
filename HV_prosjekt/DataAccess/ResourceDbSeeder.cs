@@ -10,9 +10,9 @@ namespace HV_prosjekt.DataAccess
 
             var seedResources = new[]
             {
-                new Resource { Name = "Resource 1", Description = "Description 1", Type = "Type A" },
-                new Resource { Name = "Resource 2", Description = "Description 2", Type = "Type B" },
-                new Resource { Name = "Resource 3", Description = "Description 3", Type = "Type C" }
+                new Resource { Name = "Resource 1", Description = "Description 1", Type = ResourceType.TypeA },
+                new Resource { Name = "Resource 2", Description = "Description 2", Type = ResourceType.TypeB },
+                new Resource { Name = "Resource 3", Description = "Description 3", Type = ResourceType.TypeC }
             };
 
             foreach (var seedResource in seedResources)
@@ -21,13 +21,25 @@ namespace HV_prosjekt.DataAccess
 
                 if (resource is null)
                 {
-                    resource = new Resource { Id = seedResource.Id, };
-                    dbContext.Resources.Add(resource);
+                    // create with same values
+                    dbContext.Resources.Add(seedResource);
                 }
-
-                resource.Name = seedResource.Name;
-                resource.Description = seedResource.Description;
-                resource.Type = seedResource.Type;
+                else
+                {
+                    // update values on existing resource
+                    dbContext.Entry(resource).CurrentValues.SetValues(new
+                    {
+                        seedResource.Name,
+                        seedResource.Description,
+                        seedResource.Type,
+                        seedResource.Address,
+                        seedResource.City,
+                        seedResource.ZipCode,
+                        seedResource.OwnerTelephoneNumber,
+                        seedResource.Latitude,
+                        seedResource.Longitude
+                    });
+                }
             }
 
             dbContext.SaveChanges();

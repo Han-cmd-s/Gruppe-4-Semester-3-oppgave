@@ -1,0 +1,75 @@
+@model HV_prosjekt.Models.PositionModel
+
+<div id="map" style="width: 100%; height: 500px;"></div>
+
+@section Scripts {
+<script>
+    var map = L.map('map').setView([58.14671, 7.9956], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // load existing markers from server
+    async function loadMarkers() {
+        try {
+            const res = await fetch('/api/positions');
+            if (!res.ok) return console.error('Failed to load positions');
+            const positions = await res.json();
+            positions.forEach(p => {
+                L.marker([p.latitude, p.longitude]).addTo(map);
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    // save marker to server
+    async function savePosition(lat, lng, marker) {
+        try {
+            const res = await fetch('/api/positions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ latitude: lat, longitude: lng })
+            });
+            if (!res.ok) {
+                alert('Could not save position');
+                return;
+            }
+            const created = await res.json();
+            marker.bindPopup('Saved (id: ' + created.id + ')').openPopup();
+        } catch (err) {
+            console.error(err);
+            alert('Error saving position');
+        }
+    }
+
+    // map click: add draggable marker with "Save" button in popup
+    map.on('click', function(e) {
+        const marker = L.marker(e.latlng, { draggable: true }).addTo(map);
+        const saveButton = L.DomUtil.create('button', '', null);
+        saveButton.textContent = 'Save marker';
+        saveButton.style.display = 'block';
+        saveButton.style.margin = '6px';
+
+        const popupDiv = L.DomUtil.create('div', '');
+        popupDiv.appendChild(document.createTextNode('Lat: ' + e.latlng.lat.toFixed(6) + ', Lng: ' + e.latlng.lng.toFixed(6)));
+        popupDiv.appendChild(document.createElement('br'));
+        popupDiv.appendChild(saveButton);
+
+        marker.bindPopup(popupDiv).openPopup();
+
+        saveButton.addEventListener('click', function () {
+            const pos = marker.getLatLng();
+            savePosition(pos.lat, pos.lng, marker);
+        });
+
+        marker.on('dragend', function () {
+            const pos = marker.getLatLng();
+            marker.setPopupContent('Lat: ' + pos.lat.toFixed(6) + ', Lng: ' + pos.lng.toFixed(6));
+        });
+    });
+
+    // initial load
+    loadMarkers();
+</script>
+}

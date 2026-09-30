@@ -10,8 +10,8 @@ namespace HV_prosjekt.DataAccess
 
         public ResourceRepository()
         {
-            Create(new ResourceViewModel { Name = "Resource 1", Description = "Description 1", Type = "Type A" });
-            Create(new ResourceViewModel { Name = "Resource 2", Description = "Description 2", Type = "Type B" });
+            Create(new ResourceViewModel { Name = "Resource 1", Description = "Description 1", Type = Models.Entities.ResourceType.TypeA });
+            Create(new ResourceViewModel { Name = "Resource 2", Description = "Description 2", Type = Models.Entities.ResourceType.TypeB });
         }
 
         public Resource Create(ResourceViewModel model)
@@ -22,7 +22,9 @@ namespace HV_prosjekt.DataAccess
                 Id = _nextId++,
                 Name = model.Name,
                 Description = model.Description,
-                Type = model.Type
+                Type = model.Type,
+                Latitude = model.Latitude,
+                Longitude = model.Longitude
             };
             _resources[resource.Id] = resource;
             return resource;
@@ -44,10 +46,21 @@ namespace HV_prosjekt.DataAccess
             {
                 return false;
             }
-            var resource = _resources[id];
-            resource.Name = model.Name;
-            resource.Description = model.Description;
-            resource.Type = model.Type;
+            var existing = _resources[id];
+            var updated = new Resource
+            {
+                Id = existing.Id,
+                Name = model.Name,
+                Description = model.Description,
+                Type = model.Type,
+                Address = existing.Address,
+                City = existing.City,
+                ZipCode = existing.ZipCode,
+                OwnerTelephoneNumber = existing.OwnerTelephoneNumber,
+                Latitude = model.Latitude ?? existing.Latitude,
+                Longitude = model.Longitude ?? existing.Longitude
+            };
+            _resources[id] = updated;
             return true;
         }
 

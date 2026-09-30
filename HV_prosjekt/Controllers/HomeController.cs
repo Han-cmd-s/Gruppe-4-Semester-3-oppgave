@@ -35,6 +35,13 @@ namespace HV_prosjekt.Controllers
             return View();
         }
 
+        // Show saved GeoJSON entries (in-memory)
+        [HttpGet]
+        public IActionResult Entries()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -19,7 +19,9 @@ namespace HV_prosjekt.DataAccess
                 entity.Property(resource => resource.Description)
                     .HasMaxLength(2000)
                     .IsRequired();
+                // store enum as string for readability
                 entity.Property(resource => resource.Type)
+                    .HasConversion<string>()
                     .HasMaxLength(100)
                     .IsRequired();
                 entity.Property(resource => resource.Address)
