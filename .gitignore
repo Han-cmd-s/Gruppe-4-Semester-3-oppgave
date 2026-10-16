@@ -76,3 +76,5 @@ artifacts/
 
 # mac files
 .DS_Store
+
+.vs/
