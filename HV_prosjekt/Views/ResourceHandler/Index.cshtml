@@ -1,0 +1,32 @@
+﻿@using HV_prosjekt.Models.ViewModels.Resource
+@model List<ResourceViewModel>
+@{
+    ViewData["Title"] = "Ressurs";
+}
+<a asp-controller="ResourceHandler" asp-action="Create">Opprett ny ressurs</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Navn</th>
+        <th>Beskrivelse</th>
+        <th>Type</th>
+        <th>Handlinger</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Type</td>
+            <td>
+                <a asp-controller="ResourceHandler" asp-action="Edit" asp-route-id="@item.Id">Rediger</a> |
+                <form asp-controller="ResourceHandler" asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline">
+                    <button type="submit">Slett</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+

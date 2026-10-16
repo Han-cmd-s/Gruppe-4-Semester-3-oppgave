@@ -1,0 +1,24 @@
+﻿@using HV_prosjekt.Models.ViewModels.Resource
+@model ResourceViewModel
+@{
+    ViewData["Title"] = "Endre Ressurs";
+}
+    <form asp-controller="ResourceHandler" asp-action="Edit" method="post">
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" value="@Model.Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label asp-for="Description"></label>
+            <input asp-for="Description" value="@Model.Description" />
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <label asp-for="Type"></label>
+            <input asp-for="Type" value="@Model.Type" />
+            <span asp-validation-for="Type"></span>
+        </div>
+    <input type="hidden" asp-for="Id" value="@Model.Id" />
+        <button type="submit">Save</button>
+    </form>
